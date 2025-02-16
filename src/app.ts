@@ -11,6 +11,12 @@ import {cacheControl, checkSslAndWww, imgThemeOverride, safeExc, safeExcAsync} f
 const app = express();
 // middlewares
 
+// SHH: all requests will first hit this middleware
+app.use((req, res, next) => {
+	console.log('%s %s %s', req.method, req.url, req.path)
+	next()
+})
+
 app.use(compression())
 app.use(helmet({
 	contentSecurityPolicy: false,
