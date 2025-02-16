@@ -50,20 +50,20 @@ export default class Ph_Toast extends HTMLElement {
 		this.options = options;
 
 		this.innerHTML = `
-			<img src="${levelConfig[level].img}?noThemeOverride" alt="${levelConfig[level].text}" class="levelImg" draggable="false">
+			<img src="${levelConfig[level].img}" alt="${levelConfig[level].text}" class="levelImg" draggable="false">
 			<div class="textWrapper">
 				<div class="title">${levelConfig[level].text}</div>
 				<div class="info">${escHTML(displayText)}</div>
 			</div>
 			<button class="closeButton transparentButtonAlt">
-				<img src="/img/close.svg?noThemeOverride" draggable="false" alt="✖">
+				<img src="/img/close-dark.svg" draggable="false" alt="✖">
 			</button>
 		`;
 
 		if (options.onConfirm !== undefined) {
 			const confirmBtn = document.createElement("button");
 			confirmBtn.className = "confirmButton transparentButtonAlt";
-			confirmBtn.innerHTML = `<img src="/img/check.svg?noThemeOverride" alt="✔" draggable="false" class="confirm">`;
+			confirmBtn.innerHTML = `<img src="/img/check-dark.svg" alt="✔" draggable="false" class="confirm">`;
 			confirmBtn.addEventListener("click", this.onConfirm.bind(this));
 			this.$class("closeButton")[0].insertAdjacentElement("beforebegin", confirmBtn);
 		}
@@ -122,25 +122,25 @@ const levelConfig = {
 		text: "Success",
 		color: "#388e3c",
 		strongerColor: "#1b5e20",
-		img: "/img/success.svg",
+		img: "/img/success-dark.svg",
 	},
 	info: {
 		text: "Info",
 		color: "#1976d2",
 		strongerColor: "#0d47a1",
-		img: "/img/info.svg",
+		img: "/img/info-dark.svg",
 	},
 	warning: {
 		text: "Warning",
 		color: "#f57c00",
 		strongerColor: "#e65100",
-		img: "/img/warning.svg",
+		img: "/img/warning-dark.svg",
 	},
 	error: {
 		text: "Error",
 		color: "#d32f2f",
 		strongerColor: "#b71c1c",
-		img: "/img/error.svg",
+		img: "/img/error-dark.svg",
 	}
 }
 

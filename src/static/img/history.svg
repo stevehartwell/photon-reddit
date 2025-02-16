@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="#e4e4e4">
+	<style>@media (prefers-color-scheme: light) { path { fill: #2c2c2c } }</style>
+
 	<path d="M24,7a2,2,0,0,0,0,4A13,13,0,1,1,11,24a2,2,0,0,0-3.37-1.45A2,2,0,0,0,7,24v.06A17,17,0,1,0,24,7Z"/>
 	<path d="M18.56,12a2.08,2.08,0,0,0,.73-.13,2,2,0,1,0-.73.13Z"/>
 	<path d="M9.4,20A2,2,0,0,0,12,18.94,2,2,0,1,0,9.4,20Z"/>

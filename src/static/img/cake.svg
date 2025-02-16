@@ -1,4 +1,6 @@
 <svg height='300px' width='300px' fill="#e4e4e4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	<style>@media (prefers-color-scheme: light) { path { fill: #2c2c2c } }</style>
+
 	<title>cake</title>
 	<path d="M2,15a1,1,0,0,1-.87-.51,1,1,0,0,1,.13-1.17l11-12A1,1,0,0,1,13,1h1a9,9,0,0,1,9,9,1,1,0,0,1-.8,1l-20,4ZM13.44,3,4.81,12.42,21,9.19A7,7,0,0,0,14,3ZM22,10h0Z"></path>
 	<path d="M2,23a1,1,0,0,1-.63-.23A1,1,0,0,1,1,22V14a1,1,0,0,1,.8-1l20-4a1,1,0,0,1,.83.21A1,1,0,0,1,23,10v8a1,1,0,0,1-.8,1l-20,4Zm1-8.18v6l18-3.6v-6Z"></path>

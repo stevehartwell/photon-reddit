@@ -2,7 +2,7 @@ import {PhEvents} from "../../../types/Events";
 import {ensurePageLoaded} from "../../../utils/utils";
 import Users from "../../../multiUser/userManagement";
 import {PhotonSettingsKey, SettingsKey} from "./photonSettingsData";
-import {PhotonSettings, UiTheme} from "./settingsConfig";
+import {PhotonSettings} from "./settingsConfig";
 import { setTheme } from "./themeUpdater";
 
 const settingToCssClassMap: { [setting in SettingsKey]?: string } = {
@@ -49,7 +49,7 @@ function handleSettings(settings: PhotonSettings, isPageLoad: boolean = false) {
 		document.body.classList.add("feedGridView");
 	}
 	if ("theme" in settings)
-		setTheme(settings.theme, isPageLoad);
+		setTheme(settings.theme);
 
 	for (const settingsKey in settings) {
 		if (settingsKey in settingToCssClassMap)
@@ -87,10 +87,4 @@ window.addEventListener("load", () => {
 	}
 	Users.ensureDataHasLoaded().then(onPageLoaded);
 	ensurePageLoaded().then(onPageLoaded);
-
-	const themeOverride = document.cookie.split(";").find(c => c.trim().startsWith("themeOverride="));
-	if (themeOverride) {
-		const theme = themeOverride.split("=")[1];
-		setTheme(theme as UiTheme, true);
-	}
 });

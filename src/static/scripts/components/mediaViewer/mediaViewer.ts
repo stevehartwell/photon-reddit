@@ -292,10 +292,10 @@ export default class Ph_MediaViewer extends Ph_PhotonBaseElement {
 
 		// prev/next + i
 		if (initElements.length > 1) {
-			const prevBtn = Ph_ControlsBar.makeImageButton("/img/playBack.svg?noThemeOverride");
+			const prevBtn = Ph_ControlsBar.makeImageButton("/img/playBack-dark.svg");
 			prevBtn.addEventListener("click", this.previousGalleryElement.bind(this));
 			controlSlots.push(prevBtn);
-			const nextBtn = Ph_ControlsBar.makeImageButton("/img/playNext.svg?noThemeOverride");
+			const nextBtn = Ph_ControlsBar.makeImageButton("/img/playNext-dark.svg");
 			nextBtn.addEventListener("click", this.nextGalleryElement.bind(this));
 			controlSlots.push(nextBtn);
 			controlSlots.push(this.controls.firstLeftItemsSlot);
@@ -324,14 +324,14 @@ export default class Ph_MediaViewer extends Ph_PhotonBaseElement {
 		this.elementLink.setAttribute("excludeLinkFromMedia", "");
 		controlSlots.push(this.elementLink);
 		// reset view
-		const resetViewBtn = Ph_ControlsBar.makeImageButton("/img/reset.svg?noThemeOverride");
+		const resetViewBtn = Ph_ControlsBar.makeImageButton("/img/reset-dark.svg");
 		resetViewBtn.classList.add("resetView");
 		resetViewBtn.classList.add("evenSmaller");
 		resetViewBtn.addEventListener("click", () => this.draggableWrapper.reset());
 		controlSlots.push(resetViewBtn);
 		// settings dropdown
 		const settingsImg = document.createElement("img");
-		settingsImg.src = "/img/settings2.svg?noThemeOverride";
+		settingsImg.src = "/img/settings2-dark.svg";
 		nonDraggableElement(settingsImg)
 		settingsImg.alt = "settings";
 		this.settingsDropDown = new Ph_DropDown(
@@ -350,8 +350,8 @@ export default class Ph_MediaViewer extends Ph_PhotonBaseElement {
 		controlSlots.push(this.settingsDropDown);
 		// fullscreen
 		const { b: fsBtn, img: fsImg } = Ph_ControlsBar.makeSwitchingImageBtn(new Ph_SwitchingImage([
-			{ src: "/img/fullscreen.svg?noThemeOverride", key: "fullscreen" },
-			{ src: "/img/minimize.svg?noThemeOverride", key: "minimize" },
+			{ src: "/img/fullscreen-dark.svg", key: "fullscreen" },
+			{ src: "/img/minimize-dark.svg", key: "minimize" },
 		]));
 		this.fullscreenImage = fsImg;
 		fsBtn.addEventListener("click", this.toggleFullscreen.bind(this));
