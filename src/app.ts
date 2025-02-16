@@ -19,7 +19,7 @@ app.use(helmet({
 app.use(safeExc(checkSslAndWww));
 // app.use(safeExc(cacheControl));
 app.use("/img", safeExcAsync(imgThemeOverride));
-app.use(express.static('src/static'));
+app.use(express.static('static'));
 app.use(bodyParser.json());
 
 // paths
@@ -28,7 +28,7 @@ app.use("/api", photonApiRouter);
 // /data instead of /analytics used to avoid getting blocked by adblockers
 app.use("/data", analyticsRouter);
 
-const indexFile = __dirname + "/src/static/index.html"
+const indexFile = __dirname + "/static/index.html"
 // catch all paths and check ssl, since app.use middleware doesn't seem to get called here
 app.get("*", [RateLimit(basicRateLimitConfig), checkSslAndWww], safeExc((req, res) => {
 	res.sendFile(indexFile);

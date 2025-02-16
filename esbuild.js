@@ -19,8 +19,8 @@ if (missingEnvVars.length > 0) {
 function makeGeneralConfig(label, shouldBundle, platform = null) {
 	return {
 		bundle: shouldBundle,
-		outdir: "/",
-		outbase: "/",
+		outdir: "dist",
+		outbase: "src",
 		...(platform !== null ? { platform } : {}),
 		format: "esm",
 		sourcemap: true,
@@ -83,3 +83,14 @@ else {
 	await Promise.all(buildContexts.map((cxt) => cxt.rebuild()));
 	await Promise.all(buildContexts.map((cxt) => cxt.dispose()));
 }
+
+import { spawnSync } from "child_process";
+
+const rsync_args = [
+	'-a',
+	'--exclude', '*.ts', '--exclude', '*.scss',
+	'--prune-empty-dirs',
+	'.env', 'src/', 'dist/'
+];
+spawnSync('rsync', rsync_args, {});
+

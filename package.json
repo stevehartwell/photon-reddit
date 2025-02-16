@@ -4,10 +4,11 @@
   "description": "A fast and modern Reddit web client",
   "type": "module",
   "scripts": {
-    "start": "node src/app.js",
-    "start-dev": "nodemon src/app.js",
-    "build": "node esbuild.js",
-    "watch": "node esbuild.js watch",
+    "start": "cd dist && node app.js",
+    "prestart": "npm run build",
+    "start-dev": "cd dist && nodemon app.js",
+    "build": "rm -rf dist && node esbuild.js",
+    "esbuild-watch": "node esbuild.js watch",
     "version": "node scripts/changeVersion.mjs"
   },
   "compilerOption": {
