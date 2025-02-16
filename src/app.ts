@@ -33,10 +33,10 @@ app.use("/api", photonApiRouter);
 // /data instead of /analytics used to avoid getting blocked by adblockers
 app.use("/data", analyticsRouter);
 
-const indexFile = __dirname + "/static/index.html"
 // catch all paths and check ssl, since app.use middleware doesn't seem to get called here
 app.get("*", [RateLimit(basicRateLimitConfig), checkSslAndWww], safeExc((req, res) => {
-	res.sendFile(indexFile);
+	res.sendStatus(404);
+	// or: res.redirect('/index.html');
 }));
 
 app.listen(port, () => {
