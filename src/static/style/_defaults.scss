@@ -208,9 +208,11 @@ blockquote {
 ::-webkit-scrollbar-thumb {
 	background: vars.$scrollbar-color;
 
+	/** SHH: Firefox says this is a bad selector:
 	&:hover {
 		background: vars.$scrollbar-color-hover;
 	}
+	**/
 }
 
 ::selection {

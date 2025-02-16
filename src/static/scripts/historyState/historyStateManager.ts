@@ -43,6 +43,7 @@ window.addEventListener("popstate", (e: PopStateEvent) => {
 		const newState = deepClone(ViewsStack.getCurrentState().state);
 		newState.url = newState.url.replace(/(#.*)?$/, location.hash)
 		ViewsStack.replaceHistoryState(newState);
+		return; // SHH cannot continue without e.state
 	}
 	// forward
 	if (e.state.index > ViewsStack.getPosition()) {
