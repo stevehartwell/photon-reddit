@@ -114,10 +114,6 @@ self.addEventListener("message", async (e: MessageEvent) => {
 		await skipWaiting();
 		postMessage = { action: "reload" };
 	}
-	else if (e.data["action"] === "purgeSvgsCache") {
-		await purgeSvgsCache();
-		postMessage = { action: "purgeSvgsCacheDone" };
-	}
 
 	if (postMessage) {
 		const allClients = await clients.matchAll();
@@ -144,13 +140,6 @@ function isResponseExpired(headers: Headers): boolean {
 	if (isNaN(dateValue))
 		return false;
 	return now - dateValue > ttl;
-}
-
-async function purgeSvgsCache() {
-	const cache = await caches.open(CACHE_NAME);
-	const keys = await cache.keys();
-	const svgKeys = keys.filter(key => new URL(key.url).pathname.endsWith(".svg"));
-	await Promise.all(svgKeys.map(key => cache.delete(key)));
 }
 
 // keep this, so that tsc treats this file as a module

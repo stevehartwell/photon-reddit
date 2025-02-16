@@ -1,8 +1,8 @@
 import {FlairApiData, FlairData, RedditApiData} from "../../../types/redditTypes";
 import {colorStringToRgb, emojiFlagsToImages} from "../../../utils/htmlStatics";
 import {clamp, hasParams} from "../../../utils/utils";
-import Users from "../../../multiUser/userManagement";
 import { UiTheme } from "../../global/photonSettings/settingsConfig";
+import { currentTheme } from "../../global/photonSettings/themeUpdater";
 
 type RGB = [number, number, number];
 
@@ -167,7 +167,7 @@ export default class Ph_Flair extends HTMLElement {
 					bgFgColor = [
 						this.shortColorToCss(color),
 						color === "transparent" && secondaryColor === "dark"
-							? this.shortColorToCss(Users.global.d.photonSettings.theme != UiTheme.light ? "light" : "dark")
+							? this.shortColorToCss(currentTheme() !== UiTheme.light ? "light" : "dark")
 							: this.shortColorToCss(secondaryColor) || this.oppositeColor(color)
 					];
 				}

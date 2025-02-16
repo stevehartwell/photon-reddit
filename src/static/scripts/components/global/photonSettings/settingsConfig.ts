@@ -47,6 +47,7 @@ export enum AllowIframesDecision {
 export enum UiTheme {
 	light = "light",
 	dark = "dark",
+	auto = "light dark",
 }
 
 export interface PhotonSettings {
@@ -137,7 +138,7 @@ export const defaultSettings: PhotonSettings = {
 	allowIframes: AllowIframesDecision.ask,
 	defaultFrontpageSort: SortPostsOrder.default,
 	highlightNewComments: true,
-	theme: UiTheme.dark,
+	theme: UiTheme.auto,
 	highlightSeenPosts: false,
 	absoluteTimestamps: false,
 };
@@ -219,7 +220,8 @@ export const getSettingsSections = (): SettingsSection[] => [
 				[
 					{ text: "Dark", value: UiTheme.dark },
 					{ text: "Light", value: UiTheme.light },
-				], "theme", "Theme", "Requires reload", SettingsApi.Photon
+					{ text: "Auto", value: UiTheme.auto },
+				], "theme", "Theme", "Auto means use system settings", SettingsApi.Photon
 			),
 			new BooleanSetting("loadInlineMedia", "Expand media previews", "Expand previews for links with media (e.g. imgur.com/..., reddit.com/.../.png).", SettingsApi.Photon),
 			new NumberSetting({ allowRange: [0, Number.MAX_SAFE_INTEGER] }, "imageLimitedHeight", "Max media height", "Set the maximum height for images/videos in % of screen height. Set height to \"0\" to disable height limits.", SettingsApi.Photon),
